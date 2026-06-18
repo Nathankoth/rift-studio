@@ -128,7 +128,7 @@ const cards = [
     content: (
       <div className="w-full h-full bg-[#F5F0EB] text-[#0f0e0d] p-5 flex flex-col justify-between">
         <div className="text-[10px] uppercase tracking-[0.3em] text-[#7a7672]">
-          Process · 05 weeks
+          14 days
         </div>
         <div className="flex items-center justify-between gap-2 text-[9px] uppercase tracking-widest">
           <div className="flex flex-col items-center gap-1">
