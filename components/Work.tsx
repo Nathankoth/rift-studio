@@ -30,11 +30,12 @@ const projects = [
   },
   {
     number: "03",
-    client: "Voice Agent Demo",
+    client: "Nancy",
     type: "AI Infrastructure",
     year: "2026",
+    url: "https://nancy-vert.vercel.app/",
     description:
-      "A live AI receptionist embedded as a web widget natural conversation, instant lead capture, custom trained per business.",
+      "A live AI receptionist for restaurants. Natural conversation, instant booking receipts, and manager follow up built in.",
     tags: ["Deepgram", "Next.js", "Edge"],
   },
   {
