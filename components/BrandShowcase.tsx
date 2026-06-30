@@ -17,7 +17,7 @@ const cards = [
     content: (
       <div className="w-full h-full bg-[#1a1916] text-[#F5F0EB] p-6 flex flex-col justify-between">
         <div className="text-[10px] uppercase tracking-[0.3em] text-[#7a7672]">
-          Brand · 2026
+          Brand, 2026
         </div>
         <div className="font-serif text-3xl md:text-5xl">Noir</div>
         <div className="text-[10px] text-[#7a7672]">Fashion / Identity</div>

@@ -8,11 +8,11 @@ const slug = "africa-is-going-digital-businesses-that-get-found-will-win";
 export const metadata: Metadata = {
   title: "Africa Is Going Digital. The Businesses That Get Found Will Win.",
   description:
-    "More people come online every year through a phone in their pocket. Before they buy, they search. The business that shows up first is the one that gets the money.",
+    "More people come online every year through a phone in their pocket. Before they buy, they search and the business that shows up first is the one that gets the money.",
   openGraph: {
     title: "Africa Is Going Digital. The Businesses That Get Found Will Win.",
     description:
-      "More people come online every year through a phone in their pocket. Before they buy, they search. The business that shows up first is the one that gets the money.",
+      "More people come online every year through a phone in their pocket. Before they buy, they search and the business that shows up first is the one that gets the money.",
     type: "article",
     url: `https://riftdigitalsolution.com/blog/${slug}`,
   },

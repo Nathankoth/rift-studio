@@ -47,7 +47,7 @@ export default function CTA() {
 
           <p className="text-lg sm:text-xl md:text-2xl text-muted max-w-2xl mb-8 md:mb-12 leading-relaxed text-balance">
             Take the free visibility check and we&apos;ll show you where customers are
-            slipping away, and how to win them back.
+            slipping away and how to win them back.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
