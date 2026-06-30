@@ -15,7 +15,7 @@ export default function VisibilityCheckSection() {
         </h2>
         <p className="text-base md:text-lg text-muted leading-relaxed text-balance">
           Answer six quick questions and get a score out of 100. It takes about two minutes
-          and shows you where your online presence is strong — and where you&apos;re losing
+          and shows you where your online presence is strong, and where you&apos;re losing
           sales.
         </p>
       </div>

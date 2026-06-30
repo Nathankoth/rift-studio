@@ -57,10 +57,10 @@ const QUESTIONS: Question[] = [
     area: "Direct channel",
     prompt: "Can customers reach you directly without going through delivery apps or middlemen?",
     options: [
-      { label: "Yes — our own site or channel handles orders and bookings", points: 15 },
-      { label: "Partly — some sales go direct, many go through apps", points: 9 },
+      { label: "Yes, our own site or channel handles orders and bookings", points: 15 },
+      { label: "Partly, some sales go direct, many go through apps", points: 9 },
       { label: "Mostly through delivery apps or third parties", points: 4 },
-      { label: "Not really — we depend on walk-ins or referrals", points: 0 },
+      { label: "Not really, we depend on walk-ins or referrals", points: 0 },
     ],
   },
   {
@@ -98,7 +98,7 @@ function scoreLabel(score: number) {
 
 function scoreMessage(score: number) {
   if (score >= 80) {
-    return "You're ahead of most businesses — but there's still upside in staying active and capturing more enquiries.";
+    return "You're ahead of most businesses, but there's still upside in staying active and capturing more enquiries.";
   }
   if (score >= 55) {
     return "You have some basics in place, but gaps are likely sending ready customers to competitors who are easier to find.";
@@ -106,7 +106,7 @@ function scoreMessage(score: number) {
   if (score >= 30) {
     return "You're losing visibility every week. Fixing the biggest gaps is usually faster and cheaper than most owners expect.";
   }
-  return "Right now, customers who want what you offer probably can't find you. That's fixable — and it starts with the basics.";
+  return "Right now, customers who want what you offer probably can't find you. That's fixable, and it starts with the basics.";
 }
 
 export default function VisibilityCheck() {
@@ -139,7 +139,7 @@ export default function VisibilityCheck() {
 
   function openWhatsApp() {
     const message = [
-      "Hi RIFT — I just completed the Visibility Check.",
+      "Hi RIFT, I just completed the Visibility Check.",
       "",
       `Business: ${business}`,
       `Name: ${name}`,
@@ -246,7 +246,7 @@ export default function VisibilityCheck() {
             <span className="text-sm text-muted">/ 100 so far</span>
           </div>
           <h3 className="font-display text-2xl font-extrabold leading-tight sm:text-3xl">
-            Almost done — where should we send your results?
+            Almost done. Where should we send your results?
           </h3>
           <p className="mt-3 text-sm text-muted">
             We&apos;ll open WhatsApp with your score so you can talk to us directly.

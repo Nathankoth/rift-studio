@@ -146,7 +146,7 @@ export default function Work() {
             <div className="md:hidden">
               <div className="flex items-start justify-between mb-4">
                 <span className="font-display text-xs text-muted">
-                  {project.number} · {project.year}
+                  {project.number} / {project.year}
                 </span>
                 <span className="text-[10px] uppercase tracking-widest text-muted">
                   {project.type}

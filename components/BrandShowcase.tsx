@@ -295,8 +295,8 @@ export default function BrandShowcase() {
             <span className="w-8 h-px bg-[#FF4D00]" />
           </div>
           <h2 className="font-display font-extrabold text-[2.25rem] sm:text-5xl leading-[0.95] tracking-tight text-balance px-1">
-            Digital identities{" "}
-            <span className="italic font-serif font-normal">
+            <span className="showcase-line block">Digital identities</span>
+            <span className="showcase-line block italic font-serif font-normal">
               for ambitious brands<span className="text-[#FF4D00]">.</span>
             </span>
           </h2>

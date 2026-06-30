@@ -62,7 +62,7 @@ export default function Hero() {
         <div className="hero-eyebrow flex flex-wrap items-center gap-3 mb-6 md:mb-8">
           <span className="w-8 md:w-12 h-px bg-accent shrink-0" />
           <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-muted">
-            RIFT Digital Solution · Lagos
+            RIFT Digital Solution, Lagos
           </span>
         </div>
 
