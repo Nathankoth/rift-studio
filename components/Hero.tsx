@@ -12,9 +12,55 @@ export default function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
-    video.play().catch(() => {
-      // Some browsers block autoplay until user interaction.
-    });
+    const playVideo = () => {
+      const playPromise = video.play();
+      if (playPromise) {
+        playPromise.catch(() => {
+          // Autoplay blocked until user interaction.
+        });
+      }
+    };
+
+    const handleEnded = () => {
+      // iOS Safari often ignores the loop attribute; restart manually.
+      video.currentTime = 0;
+      playVideo();
+    };
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible" && (video.paused || video.ended)) {
+        if (video.ended) {
+          video.currentTime = 0;
+        }
+        playVideo();
+      }
+    };
+
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted && (video.paused || video.ended)) {
+        if (video.ended) {
+          video.currentTime = 0;
+        }
+        playVideo();
+      }
+    };
+
+    video.addEventListener("ended", handleEnded);
+    document.addEventListener("visibilitychange", handleVisibility);
+    window.addEventListener("pageshow", handlePageShow);
+
+    if (video.readyState >= 2) {
+      playVideo();
+    } else {
+      video.addEventListener("canplay", playVideo, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener("ended", handleEnded);
+      video.removeEventListener("canplay", playVideo);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      window.removeEventListener("pageshow", handlePageShow);
+    };
   }, []);
 
   useGSAP(
@@ -47,11 +93,13 @@ export default function Hero() {
           loop
           playsInline
           preload="auto"
+          disablePictureInPicture
+          disableRemotePlayback
           className="w-full h-full object-cover"
           poster="/videos/hero-poster.jpg"
         >
-          <source src="/videos/hero.webm" type="video/webm" />
           <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-background/55" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-background/20 to-background" />
