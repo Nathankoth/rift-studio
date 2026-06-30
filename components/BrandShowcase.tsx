@@ -96,7 +96,7 @@ const cards = [
           Design is how it works. Not how it looks.
         </div>
         <div className="text-[10px] uppercase tracking-widest text-[#7a7672]">
-          Studio Principle
+          RIFT Principle
         </div>
       </div>
     ),
@@ -128,14 +128,14 @@ const cards = [
     content: (
       <div className="w-full h-full bg-[#F5F0EB] text-[#0f0e0d] p-5 flex flex-col justify-between">
         <div className="text-[10px] uppercase tracking-[0.3em] text-[#7a7672]">
-          14 days
+          5 working days
         </div>
         <div className="flex items-center justify-between gap-2 text-[9px] uppercase tracking-widest">
           <div className="flex flex-col items-center gap-1">
             <div className="w-7 h-7 rounded-full border border-[#2a2825] flex items-center justify-center">
               ◇
             </div>
-            <span>Discover</span>
+            <span>Audit</span>
           </div>
           <div className="flex-1 h-px bg-[#2a2825]" />
           <div className="flex flex-col items-center gap-1">
@@ -149,11 +149,11 @@ const cards = [
             <div className="w-7 h-7 rounded-full border border-[#2a2825] flex items-center justify-center">
               ●
             </div>
-            <span>Ship</span>
+            <span>Launch</span>
           </div>
         </div>
         <div className="text-[10px] text-[#7a7672]">
-          From kickoff to launch.
+          From audit to launch.
         </div>
       </div>
     ),
@@ -273,17 +273,13 @@ export default function BrandShowcase() {
             <span className="showcase-line block text-5xl md:text-7xl lg:text-[7rem]">
               Digital identities
             </span>
-            <span className="showcase-line block text-5xl md:text-7xl lg:text-[7rem]">
-              for ambitious
-            </span>
             <span className="showcase-line block text-5xl md:text-7xl lg:text-[7rem] italic font-serif font-normal">
-              brands<span className="text-[#FF4D00]">.</span>
+              for ambitious brands<span className="text-[#FF4D00]">.</span>
             </span>
           </h2>
           <p className="showcase-meta mt-10 max-w-xl text-base md:text-lg text-[#7a7672] leading-relaxed relative z-10">
-            We don't sell templates. We build digital systems that look the way
-            ambitious businesses actually feel sharp, fast, and unmistakably
-            theirs.
+            Custom websites, Google setup, and tools that help customers find you
+            and trust what they see.
           </p>
         </div>
       </div>
@@ -298,20 +294,15 @@ export default function BrandShowcase() {
             </span>
             <span className="w-8 h-px bg-[#FF4D00]" />
           </div>
-          <h2 className="font-display font-extrabold leading-[0.9] tracking-tight text-balance">
-            <span className="showcase-line block text-[2.75rem] sm:text-6xl">
-              Digital identities
-            </span>
-            <span className="showcase-line block text-[2.75rem] sm:text-6xl">
-              for ambitious
-            </span>
-            <span className="showcase-line block text-[2.75rem] sm:text-6xl italic font-serif font-normal">
-              brands<span className="text-[#FF4D00]">.</span>
+          <h2 className="font-display font-extrabold text-[2.25rem] sm:text-5xl leading-[0.95] tracking-tight text-balance px-1">
+            Digital identities{" "}
+            <span className="italic font-serif font-normal">
+              for ambitious brands<span className="text-[#FF4D00]">.</span>
             </span>
           </h2>
           <p className="showcase-meta mt-8 text-base text-[#7a7672] leading-relaxed text-balance">
-            We don't sell templates. We build digital systems that look the way
-            ambitious businesses actually feel.
+            Custom websites, Google setup, and tools that help customers find you
+            and trust what they see.
           </p>
         </div>
 

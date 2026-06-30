@@ -10,31 +10,39 @@ gsap.registerPlugin(ScrollTrigger);
 const steps = [
   {
     number: "01",
-    title: "Discovery",
-    duration: "Day 1",
+    title: "Audit",
     description:
-      "We dig into your business, your customers, and your competition. You get a written brief and wireframe sketches. You sign off before we code anything.",
+      "We score your online presence and show you where customers are slipping away.",
   },
   {
     number: "02",
-    title: "Build",
-    duration: "Day 2 to 10",
+    title: "Agreement",
     description:
-      "We build on Next.js and ship to Vercel. The site loads fast, works on mobile, ranks in search. You see it live as we build.",
+      "We confirm the scope and you secure your slot with a deposit.",
   },
   {
     number: "03",
-    title: "Review",
-    duration: "Day 10 to 13",
+    title: "Onboarding",
     description:
-      "Two rounds of changes included. We ship refinements same day.",
+      "You send your assets and access, and we set up the project.",
   },
   {
     number: "04",
-    title: "Launch",
-    duration: "Day 14",
+    title: "Build",
     description:
-      "Site goes live. We set up analytics, hand over the code, and I'm on call for 30 days. You own everything.",
+      "We design and build your website in 5 working days.",
+  },
+  {
+    number: "05",
+    title: "Launch",
+    description:
+      "We take you live and set up your Google Business Profile and Analytics.",
+  },
+  {
+    number: "06",
+    title: "Growth",
+    description:
+      "We keep improving your visibility and bookings every month.",
   },
 ];
 
@@ -80,33 +88,30 @@ export default function Process() {
           <div className="flex items-center gap-3 mb-4 md:mb-6">
             <span className="w-8 md:w-12 h-px bg-accent" />
             <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted">
-              How we work
+              How it works
             </span>
           </div>
-          <h2 className="font-display font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-huge leading-[0.9] tracking-tight max-w-4xl">
-            Two weeks.<br />
+          <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-huge leading-[0.92] tracking-tight max-w-4xl">
+            5 working days.<br />
             <span className="italic font-serif font-normal text-muted">
-              No surprises.
+              Clear steps.
             </span>
           </h2>
           <p className="mt-6 md:mt-8 max-w-xl text-muted text-base md:text-lg leading-relaxed">
-            A clear, fixed process so you know exactly what happens, when, and
-            what you get. No agency theatre.
+            You know what happens, when it happens, and what you get at each
+            stage. No guesswork.
           </p>
         </div>
 
-        <div className="process-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="process-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
           {steps.map((step) => (
             <div
               key={step.number}
               className="process-step relative bg-background border border-border rounded-2xl p-6 sm:p-7 md:p-8"
             >
-              <div className="flex items-baseline justify-between mb-6 md:mb-8">
+              <div className="mb-6 md:mb-8">
                 <span className="font-display font-extrabold text-4xl sm:text-5xl text-accent">
                   {step.number}
-                </span>
-                <span className="text-[10px] sm:text-xs uppercase tracking-widest text-muted">
-                  {step.duration}
                 </span>
               </div>
               <h3 className="font-display font-bold text-xl sm:text-2xl mb-3 md:mb-4">

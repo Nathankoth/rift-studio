@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 
 const navItems = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "About", href: "#about" },
+  { label: "Work", href: "/#work" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "About", href: "/#about" },
 ];
+
+const CONTACT_EMAIL = "RiftDigitalStudio@volarisglobal.com";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,17 +38,21 @@ export default function Nav() {
           scrolled || menuOpen ? "py-3 md:py-4 bg-background/80 backdrop-blur-md" : "py-5 md:py-6"
         )}
       >
-        <div className="container-rift flex items-center justify-between">
+        <div className="container-rift flex items-center justify-between gap-3 min-w-0">
           <a
-            href="#"
-            className="font-display font-extrabold text-xl md:text-2xl tracking-tight relative z-50"
+            href="/"
+            className="font-display font-extrabold text-base sm:text-lg md:text-xl lg:text-2xl tracking-tight relative z-50 min-w-0 shrink"
             onClick={() => setMenuOpen(false)}
+            aria-label="RIFT Digital Solution"
           >
-            RIFT<span className="text-accent">.</span>
+            <span className="md:hidden text-accent">RIFT</span>
+            <span className="hidden md:inline">
+              <span className="text-accent">RIFT</span> Digital Solution
+            </span>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-8 xl:gap-10 shrink-0">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -60,10 +66,12 @@ export default function Nav() {
 
           {/* Desktop CTA */}
           <a
-            href="#contact"
-            className="hidden md:inline-flex group items-center gap-2 px-5 py-2.5 rounded-full border border-border hover:border-accent hover:bg-accent hover:text-background transition-all duration-300"
+            href="/#check"
+            className="hidden lg:inline-flex group items-center gap-2 px-4 xl:px-5 py-2.5 rounded-full border border-border hover:border-accent hover:bg-accent hover:text-background transition-all duration-300 shrink-0"
           >
-            <span className="text-sm uppercase tracking-widest">Start a project</span>
+            <span className="text-xs xl:text-sm uppercase tracking-widest whitespace-nowrap">
+              Check my visibility
+            </span>
             <span className="group-hover:translate-x-0.5 transition-transform">→</span>
           </a>
 
@@ -117,15 +125,15 @@ export default function Nav() {
 
           <div className="mt-12 pt-12 border-t border-border">
             <a
-              href="#contact"
+              href="/#check"
               onClick={() => setMenuOpen(false)}
               className="inline-flex items-center gap-3 px-6 py-4 bg-accent text-background rounded-full font-medium uppercase tracking-widest text-sm"
             >
-              Start a project
+              Get my free score
               <span>→</span>
             </a>
-            <p className="mt-8 text-xs uppercase tracking-[0.3em] text-muted">
-              riftstudio@volarisgloba.com
+            <p className="mt-8 text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted break-all">
+              {CONTACT_EMAIL}
             </p>
             <p className="mt-2 text-xs uppercase tracking-[0.3em] text-muted">
               Lagos, Nigeria

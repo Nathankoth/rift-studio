@@ -32,45 +32,45 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rift.studio"),
+  metadataBase: new URL("https://riftdigitalsolution.com"),
   title: {
-    default: "RIFT Digital Infrastructure for Bold Businesses",
-    template: "%s | RIFT",
+    default: "RIFT Digital Solution | Get Found. Look Credible. Win Customers.",
+    template: "%s | RIFT Digital Solution",
   },
   description:
-    "RIFT is a Lagos based digital studio building high performance websites and voice agents for businesses across West Africa and beyond.",
+    "RIFT Digital Solution builds fast custom websites and AI tools for Lagos businesses. Most sites go live in 5 working days, with Google Business Profile and Analytics setup included.",
   keywords: [
     "web design Nigeria",
     "web design Lagos",
-    "voice agent",
-    "web development agency",
-    "digital studio Africa",
-    "Next.js development",
+    "Google Business Profile Lagos",
+    "voice agent Nigeria",
+    "SEO Lagos",
+    "website development Lagos",
   ],
-  authors: [{ name: "RIFT Studio" }],
-  creator: "RIFT Studio",
+  authors: [{ name: "RIFT Digital Solution" }],
+  creator: "RIFT Digital Solution",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rift.studio",
-    siteName: "RIFT",
-    title: "RIFT Digital Infrastructure for Bold Businesses",
+    url: "https://riftdigitalsolution.com",
+    siteName: "RIFT Digital Solution",
+    title: "RIFT Digital Solution | Get Found. Look Credible. Win Customers.",
     description:
-      "We build websites and voice agents that put businesses ahead.",
+      "Fast custom websites and AI tools for Lagos businesses. Most sites go live in 5 working days.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "RIFT Studio",
+        alt: "RIFT Digital Solution",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RIFT Digital Infrastructure for Bold Businesses",
+    title: "RIFT Digital Solution | Get Found. Look Credible. Win Customers.",
     description:
-      "We build websites and voice agents that put businesses ahead.",
+      "Fast custom websites and AI tools for Lagos businesses. Most sites go live in 5 working days.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -89,13 +89,19 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "RIFT Studio",
+  name: "RIFT Digital Solution",
   description:
-    "Digital studio building websites and voice agents for businesses across West Africa.",
-  url: "https://rift.studio",
-  email: "riftstudio@volarisgloba.com",
-  areaServed: ["Nigeria", "Ghana", "West Africa", "Worldwide"],
-  serviceType: ["Web Design", "Web Development", "Voice Agents"],
+    "RIFT Digital Solution builds fast custom websites, Google Business Profile setup, and AI tools for Lagos businesses. Most websites go live in 5 working days.",
+  url: "https://riftdigitalsolution.com",
+  email: "RiftDigitalStudio@volarisglobal.com",
+  areaServed: ["Lagos", "Nigeria", "West Africa"],
+  serviceType: [
+    "Web Design",
+    "Web Development",
+    "SEO",
+    "Google Business Profile",
+    "Voice Agents",
+  ],
   priceRange: "$$$",
 };
 

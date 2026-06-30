@@ -1,11 +1,11 @@
 export default function Marquee() {
   const items = [
-    "Web Design",
+    "Websites",
+    "Google Business",
+    "SEO",
     "Voice Agents",
-    "Brand Identity",
-    "Web Development",
-    "Motion Design",
-    "Strategy",
+    "Analytics",
+    "Brand Basics",
   ];
 
   const loop = [...items, ...items];

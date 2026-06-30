@@ -95,7 +95,7 @@ export default function Work() {
             Selected work
           </span>
         </div>
-        <h2 className="font-display font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-huge leading-[0.9] tracking-tight max-w-4xl">
+        <h2 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-huge leading-[0.92] tracking-tight max-w-4xl">
           Recent<br />
           <span className="italic font-serif font-normal">ruptures.</span>
         </h2>

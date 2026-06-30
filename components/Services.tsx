@@ -7,21 +7,38 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
+const packages = [
   {
     number: "01",
-    title: "Web & Digital",
-    tagline: "Sites that put you ahead.",
-    body: "High performance landing pages, web apps, and brand sites built on modern stacks. Designed to load fast, rank well, and convert.",
-    deliverables: ["Brand sites", "Landing pages", "Web apps", "Ecommerce"],
+    title: "Foundation",
+    body: "A one-time build: website, brand basics, Google Business Profile, and Analytics setup.",
   },
   {
     number: "02",
-    title: "Voice Agents",
-    tagline: "Never miss a call again.",
-    body: "Custom AI receptionists that handle calls, book appointments, and qualify leads 24/7. Deployed per business with your tone, your data.",
-    deliverables: ["Web voice widgets", "Lead capture", "Appointment booking", "Custom training"],
+    title: "Growth",
+    body: "A monthly retainer: content, Google Business Profile management, and a simple monthly report.",
   },
+  {
+    number: "03",
+    title: "Voice agents",
+    tag: "Add-on",
+    body: "An AI voice agent that answers your calls and takes bookings around the clock.",
+  },
+  {
+    number: "04",
+    title: "Ads",
+    tag: "Add-on",
+    body: "Paid campaigns to put you in front of more customers.",
+  },
+];
+
+const deliverables = [
+  "A custom website that loads fast and works properly on mobile.",
+  "Brand basics that give your site a clean, consistent look.",
+  "Google Business Profile setup so you show up on Maps and Search.",
+  "Google Analytics setup so you can track your visitors from day one.",
+  "SEO-driven content that helps more customers find you on Google.",
+  "A simple SEO checklist for your side.",
 ];
 
 export default function Services() {
@@ -33,7 +50,7 @@ export default function Services() {
         y: 60,
         opacity: 0,
         duration: 1,
-        stagger: 0.15,
+        stagger: 0.1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -51,6 +68,18 @@ export default function Services() {
           start: "top 80%",
         },
       });
+
+      gsap.from(".deliverable-item", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".deliverables-grid",
+          start: "top 80%",
+        },
+      });
     },
     { scope: sectionRef }
   );
@@ -61,55 +90,72 @@ export default function Services() {
       id="services"
       className="py-24 md:py-32 lg:py-48 container-rift"
     >
-      <div className="services-heading mb-16 md:mb-24 lg:mb-32">
+      <div className="services-heading mb-16 md:mb-24">
         <div className="flex items-center gap-3 mb-4 md:mb-6">
           <span className="w-8 md:w-12 h-px bg-accent" />
           <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted">
             What we do
           </span>
         </div>
-        <h2 className="font-display font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-huge leading-[0.9] tracking-tight max-w-4xl">
-          Two lanes.<br />
-          <span className="italic font-serif font-normal text-muted">
-            One outcome.
-          </span>
-        </h2>
+        <p className="max-w-3xl text-muted text-base md:text-lg leading-relaxed text-balance">
+          We build your website, set up your Google presence, and keep improving
+          how you show up in search. Most websites go live in 5 working days.
+          When you&apos;re ready to grow, we add the tools that bring in more
+          customers.
+        </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-5 md:gap-6 lg:gap-10">
-        {services.map((service) => (
-          <article
-            key={service.number}
-            className="service-card group relative bg-surface border border-border rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 hover:border-accent transition-colors duration-500"
-          >
-            <div className="mb-8 md:mb-12">
-              <span className="font-display text-xs sm:text-sm tracking-widest text-muted">
-                {service.number}
+      <div className="mb-20 md:mb-28">
+        <h3 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl mb-8 md:mb-10">
+          Packages
+        </h3>
+        <div className="grid sm:grid-cols-2 gap-5 md:gap-6 lg:gap-8">
+          {packages.map((pkg) => (
+            <article
+              key={pkg.number}
+              className="service-card group relative bg-surface border border-border rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 hover:border-accent transition-colors duration-500"
+            >
+              <div className="flex items-center justify-between mb-6 md:mb-8">
+                <span className="font-display text-xs sm:text-sm tracking-widest text-muted">
+                  {pkg.number}
+                </span>
+                {pkg.tag && (
+                  <span className="text-[10px] uppercase tracking-widest text-accent">
+                    {pkg.tag}
+                  </span>
+                )}
+              </div>
+
+              <h4 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight mb-4">
+                {pkg.title}
+              </h4>
+              <p className="text-sm sm:text-base text-muted leading-relaxed text-balance">
+                {pkg.body}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h3 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl mb-8 md:mb-10">
+          What you get
+        </h3>
+        <ul className="deliverables-grid grid md:grid-cols-2 gap-4 md:gap-6">
+          {deliverables.map((item) => (
+            <li
+              key={item}
+              className="deliverable-item flex gap-4 bg-surface border border-border rounded-2xl p-5 md:p-6"
+            >
+              <span className="text-accent font-display font-bold text-sm mt-0.5">
+                ✦
               </span>
-            </div>
-
-            <h3 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight mb-3">
-              {service.title}
-            </h3>
-            <p className="font-serif italic text-xl sm:text-2xl text-accent mb-6 md:mb-8">
-              {service.tagline}
-            </p>
-            <p className="text-sm sm:text-base text-muted leading-relaxed mb-8 md:mb-10 text-balance">
-              {service.body}
-            </p>
-
-            <ul className="flex flex-wrap gap-2">
-              {service.deliverables.map((d) => (
-                <li
-                  key={d}
-                  className="text-[10px] sm:text-xs uppercase tracking-widest px-3 py-1.5 border border-border rounded-full text-muted"
-                >
-                  {d}
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+              <p className="text-sm sm:text-base text-muted leading-relaxed">
+                {item}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

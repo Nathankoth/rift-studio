@@ -7,6 +7,9 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const CONTACT_EMAIL = "RiftDigitalStudio@volarisglobal.com";
+const CONTACT_PHONE = "+234 811 699 9112";
+
 export default function CTA() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -34,31 +37,30 @@ export default function CTA() {
           <div className="flex items-center gap-3 mb-6 md:mb-8">
             <span className="w-8 md:w-12 h-px bg-accent" />
             <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted">
-              Start a project
+              Get started
             </span>
           </div>
 
-          <h2 className="font-display font-extrabold text-[3.25rem] sm:text-7xl md:text-8xl lg:text-mega leading-[0.85] tracking-tight mb-8 md:mb-12">
-            Let<span className="text-accent">'</span>s build<br />
-            <span className="italic font-serif font-normal">something rare.</span>
+          <h2 className="font-display font-extrabold text-[2.75rem] min-[400px]:text-[3.25rem] sm:text-7xl md:text-8xl lg:text-mega leading-[0.9] tracking-tight mb-8 md:mb-12">
+            Ready to get found<span className="text-accent">?</span>
           </h2>
 
           <p className="text-lg sm:text-xl md:text-2xl text-muted max-w-2xl mb-8 md:mb-12 leading-relaxed text-balance">
-            Currently booking projects for 2026. Tell us what you're working
-            on and we'll get back within 24 hours.
+            Take the free visibility check and we&apos;ll show you where customers are
+            slipping away — and how to win them back.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
             <a
-              href="mailto:riftstudio@volarisgloba.com"
-              className="group inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-8 sm:py-5 bg-accent text-background rounded-full font-medium uppercase tracking-widest text-xs sm:text-sm hover:bg-primary transition-colors"
+              href="#check"
+              className="group inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-8 sm:py-5 bg-accent text-background rounded-full font-medium uppercase tracking-widest text-xs sm:text-sm hover:bg-primary transition-colors w-full sm:w-auto"
             >
-              riftstudio@volarisgloba.com
+              Get my free score
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <a
-              href="https://wa.me/2349169178313"
-              className="group inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-8 sm:py-5 border border-border rounded-full font-medium uppercase tracking-widest text-xs sm:text-sm hover:border-accent transition-colors"
+              href="https://wa.me/2348116999112"
+              className="group inline-flex items-center justify-center gap-3 px-6 py-4 sm:px-8 sm:py-5 border border-border rounded-full font-medium uppercase tracking-widest text-xs sm:text-sm hover:border-accent transition-colors w-full sm:w-auto"
             >
               WhatsApp
               <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -69,37 +71,54 @@ export default function CTA() {
 
       <footer className="border-t border-border">
         <div className="container-rift py-10 md:py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 md:mb-12">
-            <div className="col-span-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 md:mb-12">
+            <div className="sm:col-span-2">
               <a
-                href="#"
-                className="font-display font-extrabold text-2xl md:text-3xl tracking-tight"
+                href="/"
+                className="font-display font-extrabold text-lg sm:text-xl md:text-2xl tracking-tight leading-tight inline-block"
               >
-                RIFT<span className="text-accent">.</span>
+                <span className="text-accent">RIFT</span> Digital Solution
               </a>
-              <p className="text-muted text-sm mt-4 max-w-xs leading-relaxed">
-                Digital studio building websites and voice agents from Lagos
-                to the world.
+              <p className="text-muted text-sm mt-4 max-w-sm leading-relaxed">
+                Fast websites, Google presence, and AI tools for Lagos
+                businesses.
               </p>
             </div>
 
             <div>
               <p className="text-[10px] md:text-xs uppercase tracking-widest text-muted mb-3 md:mb-4">
-                Studio
+                Navigate
               </p>
               <ul className="space-y-2 text-sm">
-                <li><a href="#work" className="hover:text-accent transition-colors">Work</a></li>
-                <li><a href="#services" className="hover:text-accent transition-colors">Services</a></li>
-                <li><a href="#process" className="hover:text-accent transition-colors">Process</a></li>
-                <li><a href="#about" className="hover:text-accent transition-colors">About</a></li>
+                <li><a href="/#work" className="hover:text-accent transition-colors">Work</a></li>
+                <li><a href="/#services" className="hover:text-accent transition-colors">Services</a></li>
+                <li><a href="/#process" className="hover:text-accent transition-colors">Process</a></li>
+                <li><a href="/#about" className="hover:text-accent transition-colors">About</a></li>
+                <li><a href="/blog" className="hover:text-accent transition-colors">Insights</a></li>
               </ul>
             </div>
 
             <div>
               <p className="text-[10px] md:text-xs uppercase tracking-widest text-muted mb-3 md:mb-4">
-                Elsewhere
+                Contact
               </p>
               <ul className="space-y-2 text-sm">
+                <li>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="hover:text-accent transition-colors break-all"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+2348116999112"
+                    className="hover:text-accent transition-colors"
+                  >
+                    {CONTACT_PHONE}
+                  </a>
+                </li>
                 <li>
                   <a
                     href="https://www.instagram.com/thewrld.vs____/"
@@ -114,9 +133,15 @@ export default function CTA() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-8 border-t border-border text-[10px] md:text-xs uppercase tracking-widest text-muted">
-            <p>© 2026 RIFT Studio. All rights reserved.</p>
-            <p>Lagos, Nigeria Available worldwide</p>
+          <div className="pt-8 border-t border-border text-[10px] md:text-xs uppercase tracking-widest text-muted space-y-2">
+            <p className="leading-relaxed break-words">
+              RIFT Digital Solution · Lagos, Nigeria
+            </p>
+            <p className="leading-relaxed break-all">{CONTACT_EMAIL}</p>
+            <p>{CONTACT_PHONE}</p>
+            <p className="pt-2 normal-case tracking-normal text-muted/80">
+              © 2026 RIFT Digital Solution. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

@@ -1,11 +1,21 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.play().catch(() => {
+      // Some browsers block autoplay until user interaction.
+    });
+  }, []);
 
   useGSAP(
     () => {
@@ -29,70 +39,69 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-[100svh] w-full overflow-hidden flex items-end pb-24 md:pb-32 pt-32"
     >
-      {/* Video background */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-50"
+          preload="auto"
+          className="w-full h-full object-cover"
           poster="/videos/hero-poster.jpg"
         >
           <source src="/videos/hero.webm" type="video/webm" />
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-background/85" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/65 via-background/35 to-background" />
+        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-background/20 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/30 to-transparent" />
       </div>
 
-      {/* Content */}
       <div className="container-rift relative z-10 w-full">
-        <div className="hero-eyebrow flex items-center gap-3 mb-6 md:mb-8">
-          <span className="w-8 md:w-12 h-px bg-accent" />
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-muted">
-            Lagos / Worldwide Est. 2026
+        <div className="hero-eyebrow flex flex-wrap items-center gap-3 mb-6 md:mb-8">
+          <span className="w-8 md:w-12 h-px bg-accent shrink-0" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-muted">
+            RIFT Digital Solution · Lagos
           </span>
         </div>
 
-        <h1 className="font-display font-extrabold text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[13rem] leading-[0.85] tracking-tight mb-6 md:mb-8">
-          <span className="hero-line block">We build</span>
-          <span className="hero-line block">
-            what others can<span className="text-accent">'</span>t
-          </span>
+        <h1 className="font-display font-extrabold text-[2.75rem] min-[400px]:text-[3rem] sm:text-6xl md:text-7xl lg:text-[8rem] xl:text-[10rem] leading-[0.92] sm:leading-[0.9] tracking-tight mb-6 md:mb-8 max-w-5xl">
+          <span className="hero-line block">Get found.</span>
+          <span className="hero-line block">Look credible.</span>
           <span className="hero-line block italic font-serif font-normal">
-            imagine<span className="text-accent">.</span>
+            Win more customers<span className="text-accent">.</span>
           </span>
         </h1>
 
-        <div className="hero-sub max-w-xl mb-8 md:mb-12">
+        <div className="hero-sub max-w-2xl mb-8 md:mb-12">
           <p className="text-base sm:text-lg md:text-xl text-muted leading-relaxed text-balance">
-            Websites and voice agents for businesses that refuse to look like
-            everyone else.
+            RIFT Digital Solution builds fast, custom websites and AI tools for
+            Lagos businesses, then gets you showing up where your customers are
+            already looking.
           </p>
         </div>
 
-        <div className="hero-cta flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+        <div className="hero-cta flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
           <a
-            href="#contact"
-            className="group inline-flex items-center gap-3 px-6 py-3.5 sm:px-7 sm:py-4 bg-accent text-background rounded-full font-medium uppercase tracking-widest text-xs sm:text-sm hover:bg-primary transition-colors"
+            href="#check"
+            className="group inline-flex items-center justify-center gap-3 px-6 py-3.5 sm:px-7 sm:py-4 bg-accent text-background rounded-full font-medium uppercase tracking-widest text-xs sm:text-sm hover:bg-primary transition-colors w-full sm:w-auto"
           >
-            Book a project
+            Get my free score
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
           <a
-            href="#work"
-            className="group inline-flex items-center gap-3 text-xs sm:text-sm uppercase tracking-widest text-muted hover:text-primary transition-colors"
+            href="#services"
+            className="group inline-flex items-center justify-center sm:justify-start gap-3 text-xs sm:text-sm uppercase tracking-widest text-muted hover:text-primary transition-colors w-full sm:w-auto py-2 sm:py-0"
           >
             <span className="w-8 h-px bg-current" />
-            See the work
+            See what we do
           </a>
         </div>
       </div>
 
-      {/* Bottom meta strip — desktop only */}
       <div className="hero-meta absolute bottom-6 left-0 right-0 container-rift hidden md:flex items-end justify-between text-xs uppercase tracking-[0.3em] text-muted">
-        <span>Currently booking 2026</span>
+        <span>Free visibility check</span>
         <span className="flex items-center gap-2">
           Scroll
           <span className="w-px h-8 bg-muted animate-pulse" />

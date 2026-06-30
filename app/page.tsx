@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import BrandShowcase from "@/components/BrandShowcase";
+import VisibilityCheckSection from "@/components/VisibilityCheckSection";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
 import Process from "@/components/Process";
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <BrandShowcase />
+      <VisibilityCheckSection />
       <Services />
       <Work />
       <Process />
