@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
+const HERO_VIDEO_SRC = "/videos/hero.mp4";
+
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -12,54 +14,38 @@ export default function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
+    // React can fail to apply muted reliably on mobile; set on the DOM node before play().
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
     const playVideo = () => {
-      const playPromise = video.play();
-      if (playPromise) {
-        playPromise.catch(() => {
-          // Autoplay blocked until user interaction.
-        });
-      }
+      video.muted = true;
+      video.play().catch(() => {
+        // Blocked until user interaction on some mobile browsers.
+      });
     };
 
     const handleEnded = () => {
-      // iOS Safari often ignores the loop attribute; restart manually.
       video.currentTime = 0;
       playVideo();
     };
 
     const handleVisibility = () => {
-      if (document.visibilityState === "visible" && (video.paused || video.ended)) {
-        if (video.ended) {
-          video.currentTime = 0;
-        }
+      if (document.visibilityState === "visible" && video.paused) {
         playVideo();
       }
     };
 
-    const handlePageShow = (event: PageTransitionEvent) => {
-      if (event.persisted && (video.paused || video.ended)) {
-        if (video.ended) {
-          video.currentTime = 0;
-        }
-        playVideo();
-      }
-    };
-
+    playVideo();
     video.addEventListener("ended", handleEnded);
     document.addEventListener("visibilitychange", handleVisibility);
-    window.addEventListener("pageshow", handlePageShow);
-
-    if (video.readyState >= 2) {
-      playVideo();
-    } else {
-      video.addEventListener("canplay", playVideo, { once: true });
-    }
 
     return () => {
       video.removeEventListener("ended", handleEnded);
-      video.removeEventListener("canplay", playVideo);
       document.removeEventListener("visibilitychange", handleVisibility);
-      window.removeEventListener("pageshow", handlePageShow);
     };
   }, []);
 
@@ -88,19 +74,15 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
+          src={HERO_VIDEO_SRC}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          disablePictureInPicture
-          disableRemotePlayback
-          className="w-full h-full object-cover"
+          className="hero-video w-full h-full object-cover"
           poster="/videos/hero-poster.jpg"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-          <source src="/videos/hero.webm" type="video/webm" />
-        </video>
+        />
         <div className="absolute inset-0 bg-background/55" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/45 via-background/20 to-background" />
         <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/30 to-transparent" />

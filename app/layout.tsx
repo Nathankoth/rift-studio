@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Syne, Inter, DM_Serif_Display } from "next/font/google";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -114,6 +115,16 @@ export default function RootLayout({
     <html lang="en" className={`${syne.variable} ${inter.variable} ${dmSerif.variable}`}>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+                if (!location.hash) window.scrollTo(0, 0);
+              })();
+            `,
+          }}
+        />
+        <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-7SDNM8ZTX9"
         />
@@ -132,7 +143,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="grain">{children}</body>
+      <body className="grain">
+        <ScrollToTop />
+        {children}
+      </body>
     </html>
   );
 }

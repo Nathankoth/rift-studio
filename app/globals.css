@@ -16,6 +16,18 @@
     overflow-x: hidden;
   }
 
+  .hero-video {
+    pointer-events: none;
+  }
+
+  .hero-video::-webkit-media-controls,
+  .hero-video::-webkit-media-controls-enclosure,
+  .hero-video::-webkit-media-controls-panel,
+  .hero-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
   ::selection {
     @apply bg-accent text-background;
   }
