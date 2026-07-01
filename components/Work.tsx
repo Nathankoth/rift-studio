@@ -50,6 +50,10 @@ const projects = [
   },
 ];
 
+function openProject(url: string) {
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 export default function Work() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -72,6 +76,7 @@ export default function Work() {
           opacity: 0,
           duration: 1,
           ease: "power3.out",
+          clearProps: "transform,opacity",
           scrollTrigger: {
             trigger: row,
             start: "top 85%",
@@ -86,7 +91,7 @@ export default function Work() {
     <section
       ref={sectionRef}
       id="work"
-      className="py-24 md:py-32 lg:py-48 container-rift"
+      className="relative z-10 py-24 md:py-32 lg:py-48 container-rift"
     >
       <div className="work-heading mb-16 md:mb-24 lg:mb-32">
         <div className="flex items-center gap-3 mb-4 md:mb-6">
@@ -103,16 +108,17 @@ export default function Work() {
 
       <div className="border-t border-border">
         {projects.map((project) => (
-          <a
+          <div
             key={project.number}
-            href={project.url ?? "#"}
-            {...(project.url
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {})}
-            className="work-row group block border-b border-border py-8 md:py-12 lg:py-14 md:hover:px-6 transition-all duration-500"
+            className="work-row group border-b border-border"
           >
-            {/* Desktop layout — multi-column row */}
-            <div className="hidden md:grid md:grid-cols-12 gap-6 items-baseline">
+            {/* Desktop layout — full row link */}
+            <a
+              href={project.url ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:grid md:grid-cols-12 gap-6 items-baseline py-12 lg:py-14 md:hover:px-6 transition-all duration-500"
+            >
               <span className="md:col-span-1 font-display text-sm text-muted">
                 {project.number}
               </span>
@@ -140,10 +146,20 @@ export default function Work() {
                   →
                 </span>
               </div>
-            </div>
+            </a>
 
-            {/* Mobile layout — stacked card */}
-            <div className="md:hidden">
+            {/* Mobile layout — explicit tap target (avoids iOS issues with animated anchor tags) */}
+            <a
+              href={project.url ?? "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="md:hidden block py-8 touch-manipulation active:opacity-80"
+              onClick={(event) => {
+                if (!project.url) return;
+                event.preventDefault();
+                openProject(project.url);
+              }}
+            >
               <div className="flex items-start justify-between mb-4">
                 <span className="font-display text-xs text-muted">
                   {project.number} / {project.year}
@@ -163,8 +179,8 @@ export default function Work() {
                 <span className="w-8 h-px bg-accent" />
                 <span>→</span>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         ))}
       </div>
     </section>

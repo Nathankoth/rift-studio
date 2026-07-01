@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Syne, Inter, DM_Serif_Display } from "next/font/google";
+import NancyWidget from "@/components/NancyWidget";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -132,7 +133,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="grain">{children}</body>
+      <body className="grain">
+        {children}
+        <NancyWidget />
+      </body>
     </html>
   );
 }

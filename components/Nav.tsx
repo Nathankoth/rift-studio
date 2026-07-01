@@ -102,7 +102,7 @@ export default function Nav() {
       <div
         className={clsx(
           "fixed inset-0 z-40 bg-background transition-all duration-500 md:hidden",
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          menuOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"
         )}
       >
         <div className="container-rift h-full flex flex-col justify-center pt-20 pb-12">
